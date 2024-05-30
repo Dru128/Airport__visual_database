@@ -36,6 +36,9 @@
     <ClCompile Include="RequestResultForm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="AuthForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainForm.h">
@@ -54,6 +57,9 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="RequestResultForm.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="AuthForm.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

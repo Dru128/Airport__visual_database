@@ -15,8 +15,6 @@ void Airportdatabase::MainForm::RefillGrid()
 {
 	FILE* routeDB = fopen(getFileName(), "r");
 
-
-
 	if (routeDB == 0) return;
 	rewind(routeDB);
 
@@ -38,4 +36,6 @@ void Airportdatabase::MainForm::RefillGrid()
 
 	RoutesGrid->DataSource = routes;
 }
+
+
 

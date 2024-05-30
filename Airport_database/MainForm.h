@@ -3,6 +3,7 @@
 #include "RouteConstructorForm.h"
 #include "RequestParamsForm.h"
 #include "RequestResultForm.h"
+#include "AuthForm.h"
 
 
 namespace Airportdatabase {
@@ -26,6 +27,7 @@ namespace Airportdatabase {
 			//
 			//TODO: добавьте код конструктора
 			//
+			AuthUser();
 			RefillGrid();
 		}
 
@@ -76,6 +78,8 @@ namespace Airportdatabase {
 
 	protected:
 
+	public:
+		Int32 TypeUser = 1;
 
 	protected:
 
@@ -90,6 +94,8 @@ namespace Airportdatabase {
 
 
 		BindingList<Route^>^ routes = gcnew BindingList<Route^>();
+		// 1 common
+		// 2 admin
 
 		void RefillGrid();
 
@@ -359,5 +365,33 @@ namespace Airportdatabase {
 		RequestResultForm^ resForm = gcnew RequestResultForm();
 		resForm->ShowDialog(this);
 	}
+
+	void AuthUser()
+	{
+		AuthForm^ form = gcnew AuthForm();
+
+		if (form->ShowDialog(this) == System::Windows::Forms::DialogResult::OK)
+		{
+			TypeUser = form->TypeUser;
+			if (TypeUser == 1)
+			{
+				AddButton->Visible = false;
+				ChangeButton->Visible = false;
+				DeleteButton->Visible = false;
+			}
+			else if (TypeUser == 2)
+			{
+				AddButton->Visible = true;
+				ChangeButton->Visible = true;
+				DeleteButton->Visible = true;
+			}	
+
+		}
+		else
+		{
+			this->Close();
+		}
+	}
+
 };
 }

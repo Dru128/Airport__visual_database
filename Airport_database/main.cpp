@@ -8,6 +8,8 @@ using namespace System::Windows::Forms;
 void Main(array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
+	
+	
 	Airportdatabase::MainForm form;
 	Application::Run(%form);
 }
