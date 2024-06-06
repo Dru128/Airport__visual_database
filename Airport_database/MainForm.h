@@ -4,6 +4,7 @@
 #include "RequestParamsForm.h"
 #include "RequestResultForm.h"
 #include "AuthForm.h"
+#include "ButtonGameForm.h"
 
 
 namespace Airportdatabase {
@@ -80,6 +81,8 @@ namespace Airportdatabase {
 
 	public:
 		Int32 TypeUser = 1;
+	private: System::Windows::Forms::Button^ GameButton;
+	public:
 
 	protected:
 
@@ -133,6 +136,7 @@ namespace Airportdatabase {
 			this->AddButton = (gcnew System::Windows::Forms::Button());
 			this->RequestButton = (gcnew System::Windows::Forms::Button());
 			this->LastRequestButton = (gcnew System::Windows::Forms::Button());
+			this->GameButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->RoutesGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -281,11 +285,24 @@ namespace Airportdatabase {
 			this->LastRequestButton->UseVisualStyleBackColor = false;
 			this->LastRequestButton->Click += gcnew System::EventHandler(this, &MainForm::LastRequestButton_Click);
 			// 
+			// GameButton
+			// 
+			this->GameButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->GameButton->Location = System::Drawing::Point(651, 3);
+			this->GameButton->Name = L"GameButton";
+			this->GameButton->Size = System::Drawing::Size(86, 32);
+			this->GameButton->TabIndex = 6;
+			this->GameButton->Text = L"Game";
+			this->GameButton->UseVisualStyleBackColor = true;
+			this->GameButton->Click += gcnew System::EventHandler(this, &MainForm::GameButton_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(749, 641);
+			this->Controls->Add(this->GameButton);
 			this->Controls->Add(this->LastRequestButton);
 			this->Controls->Add(this->RequestButton);
 			this->Controls->Add(this->AddButton);
@@ -393,5 +410,9 @@ namespace Airportdatabase {
 		}
 	}
 
+	private: System::Void GameButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		ButtonGameForm^ form = gcnew ButtonGameForm();
+		form->ShowDialog(this);
+	}
 };
 }

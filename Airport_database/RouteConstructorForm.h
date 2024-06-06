@@ -279,11 +279,7 @@ namespace Airportdatabase {
 		}
 #pragma endregion
 	private: System::Void RouteConstructorForm_Load(System::Object^  sender, System::EventArgs^  e) {
-		if (mode == 1)
-		{
-
-		}
-		else if (mode == 2)
+		if (mode == 2)
 		{
 			NumText->Text = Convert::ToString(route->Num);
 			CityText->Text = route->City;
